@@ -58,6 +58,7 @@ function mirror(fromPath, toPath) {
 }
 
 function snapGetAndDelete() {
+  console.log("In snap Get And Delete")
   return snap()
   .then(function() {
     return mirror('/DCIM', process.cwd())
@@ -70,6 +71,7 @@ function snapGetAndDelete() {
 var interval = 10000
 
 function loop() {
+  console.log("In the loop")
   var tstart = Date.now()
 
   snapGetAndDelete()
@@ -86,4 +88,5 @@ function loop() {
     })
 }
 
+console.log("Starting the loop")
 loop()
